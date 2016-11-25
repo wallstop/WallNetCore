@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace WallNetCore.Cache
+namespace WallNetCore.DataStructure
 {
     /**
         <summary>
@@ -26,21 +26,21 @@ namespace WallNetCore.Cache
         private static readonly Lazy<DiscardingQueue<T>> Singleton =
             new Lazy<DiscardingQueue<T>>(() => new DiscardingQueue<T>());
 
-        private readonly ReadOnlyCollection<T> absolutelyNothing_ = new ReadOnlyCollection<T>(new List<T>(0));
+        private readonly ReadOnlyCollection<T> absolutelyNothing_;
 
         public static DiscardingQueue<T> Instance => Singleton.Value;
 
-        private DiscardingQueue() {}
+        private T[] EmptyArray { get; }
 
-        public IEnumerator<T> GetEnumerator()
+        private DiscardingQueue()
         {
-            return absolutelyNothing_.GetEnumerator();
+            absolutelyNothing_ = new ReadOnlyCollection<T>(new List<T>(0));
+            EmptyArray = absolutelyNothing_.ToArray();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        public IEnumerator<T> GetEnumerator() => absolutelyNothing_.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public void CopyTo(Array array, int index)
         {
@@ -56,10 +56,7 @@ namespace WallNetCore.Cache
             // Second-fastest copy implementation in the west
         }
 
-        public bool TryAdd(T item)
-        {
-            return true;
-        }
+        public bool TryAdd(T item) => true;
 
         public bool TryTake(out T item)
         {
@@ -67,9 +64,6 @@ namespace WallNetCore.Cache
             return false;
         }
 
-        public T[] ToArray()
-        {
-            return absolutelyNothing_.ToArray();
-        }
+        public T[] ToArray() => EmptyArray;
     }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WallNet.Core</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>wallstop</authors>
+    <owners>wallstop</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/wallstop/WallNetCore</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Core utilities, including a Guava-style in-memory cache</description>
+    <releaseNotes>Initial version.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+  </metadata>
+</package>

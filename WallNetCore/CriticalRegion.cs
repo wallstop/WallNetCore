@@ -12,6 +12,13 @@ namespace WallNetCore
          <summary> 
              Simple wrapper around ReaderWriterLocks to allow for use with using statements
          </summary>
+
+        <code>
+            using(new CriticalRegion(readWriteLock, LockType.Read)) 
+            {
+                // Things that require a read lock go here
+            }
+        </code>
      */
 
     public struct CriticalRegion : IDisposable

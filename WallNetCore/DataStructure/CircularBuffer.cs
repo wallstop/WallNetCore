@@ -8,7 +8,7 @@ namespace WallNetCore.DataStructure
 {
     /**
         <summary>
-            Simple FIFO based circular buffer. Overwrites old values.
+            Simple LIFO based circular buffer. Overwrites old values.
         </summary>
 
         <code>
@@ -40,12 +40,12 @@ namespace WallNetCore.DataStructure
             get
             {
                 BoundsCheck(index);
-                return buffer_[(position_ - 1 + Capacity - index) % Capacity];
+                return buffer_[AdjustedIndexFor(index)];
             }
             set
             {
                 BoundsCheck(index);
-                buffer_[(position_ - 1 + Capacity - index) % Capacity] = value;
+                buffer_[AdjustedIndexFor(index)] = value;
             }
         }
 
@@ -96,6 +96,11 @@ namespace WallNetCore.DataStructure
             }
             value = default(T);
             return false;
+        }
+
+        private int AdjustedIndexFor(int index)
+        {
+            return (position_ - 1 + Capacity - index) % Capacity;
         }
 
         private void BoundsCheck(int index)

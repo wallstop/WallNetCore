@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallNetCore", "WallNetCore.csproj", "{5EE6FC86-DFCA-451B-A6DA-9EE6036F78C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallNetCoreTest", "..\WallNetCore-Test\WallNetCoreTest\WallNetCoreTest.csproj", "{838E55F9-455D-4188-9E13-921F794F2663}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WallNetCoreTest", "..\WallNetCoreTest\WallNetCoreTest.csproj", "{838E55F9-455D-4188-9E13-921F794F2663}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

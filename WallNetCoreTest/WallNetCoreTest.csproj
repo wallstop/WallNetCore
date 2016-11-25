@@ -62,7 +62,7 @@
     <Compile Include="Validate\ValidatorSpec.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WallNetCore\WallNetCore.csproj">
+    <ProjectReference Include="..\WallNetCore\WallNetCore.csproj">
       <Project>{5ee6fc86-dfca-451b-a6da-9ee6036f78c9}</Project>
       <Name>WallNetCore</Name>
     </ProjectReference>
